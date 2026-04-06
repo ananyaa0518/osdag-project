@@ -1,0 +1,42 @@
+export const locationData = [
+  {
+    state: 'Delhi',
+    district: 'New Delhi',
+    windSpeed: '47 m/s',
+    seismicZone: 'Zone IV',
+    tempMax: '45 C',
+    tempMin: '3 C',
+  },
+  {
+    state: 'Maharashtra',
+    district: 'Mumbai',
+    windSpeed: '44 m/s',
+    seismicZone: 'Zone III',
+    tempMax: '36 C',
+    tempMin: '18 C',
+  },
+  {
+    state: 'Tamil Nadu',
+    district: 'Chennai',
+    windSpeed: '50 m/s',
+    seismicZone: 'Zone III',
+    tempMax: '41 C',
+    tempMin: '21 C',
+  },
+  {
+    state: 'Karnataka',
+    district: 'Bangalore Urban',
+    windSpeed: '39 m/s',
+    seismicZone: 'Zone II',
+    tempMax: '35 C',
+    tempMin: '14 C',
+  },
+  {
+    state: 'West Bengal',
+    district: 'Kolkata',
+    windSpeed: '47 m/s',
+    seismicZone: 'Zone III',
+    tempMax: '40 C',
+    tempMin: '14 C',
+  },
+];
