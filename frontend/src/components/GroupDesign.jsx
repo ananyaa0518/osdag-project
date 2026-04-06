@@ -4,7 +4,7 @@ const GroupDesign = () => {
   const [activeTab, setActiveTab] = useState('basic');
   const [formData, setFormData] = useState({
     structureType: 'Highway',
-    locationMode: 'name', // 'name' or 'custom'
+    locationMode: 'name',
     stateName: '',
     districtName: '',
     span: '',
