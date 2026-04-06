@@ -22,8 +22,8 @@ export const BasicInputs = ({
   return (
     <div className="space-y-3 animate-fade-in-down">
       {/* Type of Structure */}
-      <section className="mb-4 overflow-hidden rounded-xl bg-white shadow-md">
-        <div className="border-b border-gray-300 bg-white px-3 py-1.5">
+      <section className="mb-4 overflow-hidden rounded-none border border-black bg-white shadow-md">
+        <div className="border-b border-black bg-white px-3 py-1.5">
           <h3 className="text-[12px] font-semibold text-gray-900">Type of Structure</h3>
         </div>
         <div className="p-3">

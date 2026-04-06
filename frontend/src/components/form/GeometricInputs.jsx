@@ -4,8 +4,8 @@ import { StyledSelect } from '../ui/StyledSelect';
 
 export const GeometricInputs = ({ formData, handleChange, errors, warnings, isOther, onOpenGeometryModal }) => {
   return (
-    <section className="mb-4 overflow-hidden rounded-xl bg-white shadow-md">
-      <div className="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-3 py-1.5">
+    <section className="mb-4 overflow-hidden rounded-none border border-black bg-white shadow-md">
+      <div className="flex items-center justify-between border-b border-black bg-gray-100 px-3 py-1.5">
         <h3 className="text-[12px] font-bold text-gray-900">Geometric Details</h3>
         <button 
           type="button" 
@@ -66,13 +66,13 @@ export const GeometricInputs = ({ formData, handleChange, errors, warnings, isOt
           />
         </div>
 
-        <div className="border-t border-gray-200 pt-2">
+        <div className="border-t border-black pt-2">
           {!formData.carriagewayWidth && !isOther && (
             <p className="mt-1 text-[10px] text-gray-500">Please enter a valid carriageway width to unlock advanced geometry.</p>
           )}
           {formData.spacing && (
             <div className="mt-2 flex items-center justify-between border border-gray-200 bg-gray-50 p-2 text-xs text-gray-700">
-              <div className="flex items-center font-medium text-green-700">
+              <div className="flex items-center font-medium text-[#84cc16]">
                 <svg className="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
                 Applied Geometry
               </div>

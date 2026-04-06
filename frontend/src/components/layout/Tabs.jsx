@@ -6,8 +6,8 @@ const Tabs = ({ activeTab, onTabChange }) => {
         onClick={() => onTabChange('basic')}
         className={`border px-3 py-2 text-sm font-semibold transition ${
           activeTab === 'basic'
-            ? 'border-lime-700 bg-lime-500 text-slate-900'
-            : 'border-gray-300 bg-gray-100 text-slate-700'
+            ? 'border-black bg-[#84cc16] text-slate-900'
+            : 'border-black bg-gray-100 text-slate-700'
         }`}
       >
         Basic Inputs
@@ -17,8 +17,8 @@ const Tabs = ({ activeTab, onTabChange }) => {
         onClick={() => onTabChange('additional')}
         className={`border px-3 py-2 text-sm font-semibold transition ${
           activeTab === 'additional'
-            ? 'border-lime-700 bg-lime-500 text-slate-900'
-            : 'border-gray-300 bg-gray-100 text-slate-700'
+            ? 'border-black bg-[#84cc16] text-slate-900'
+            : 'border-black bg-gray-100 text-slate-700'
         }`}
       >
         Additional Inputs
