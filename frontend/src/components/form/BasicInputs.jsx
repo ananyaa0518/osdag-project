@@ -18,6 +18,12 @@ export const BasicInputs = ({
   locationSummary,
   states,
   districts,
+  statesLoading,
+  districtsLoading,
+  locationLoading,
+  statesError,
+  districtsError,
+  locationError,
 }) => {
   return (
     <div className="space-y-3 animate-fade-in-down">
@@ -78,6 +84,12 @@ export const BasicInputs = ({
           locationSummary={locationSummary}
           states={states}
           districts={districts}
+          statesLoading={statesLoading}
+          districtsLoading={districtsLoading}
+          locationLoading={locationLoading}
+          statesError={statesError}
+          districtsError={districtsError}
+          locationError={locationError}
         />
 
         <GeometricInputs 

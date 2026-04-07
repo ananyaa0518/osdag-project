@@ -1,0 +1,340 @@
+[
+  {
+    "model": "locations.location",
+    "pk": 1,
+    "fields": {
+      "state": "Andhra Pradesh",
+      "district": "Hyderabad",
+      "wind": 44,
+      "seismic_zone": "I",
+      "zone_factor": 0.1,
+      "temp_max": 42.4,
+      "temp_min": 11.4
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 2,
+    "fields": {
+      "state": "Andhra Pradesh",
+      "district": "Vijayawada",
+      "wind": 50,
+      "seismic_zone": "I",
+      "zone_factor": 0.16,
+      "temp_max": 41.2,
+      "temp_min": 14.3
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 3,
+    "fields": {
+      "state": "Assam",
+      "district": "Guwahati",
+      "wind": 50,
+      "seismic_zone": "V",
+      "zone_factor": 0.36,
+      "temp_max": 40.3,
+      "temp_min": 3
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 4,
+    "fields": {
+      "state": "Gujarat",
+      "district": "Ahmedabad",
+      "wind": 39,
+      "seismic_zone": "II",
+      "zone_factor": 0.16,
+      "temp_max": 47.8,
+      "temp_min": 2.2
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 5,
+    "fields": {
+      "state": "Gujarat",
+      "district": "Bhuj",
+      "wind": 50,
+      "seismic_zone": "V",
+      "zone_factor": 0.36,
+      "temp_max": 47.8,
+      "temp_min": -0.2
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 6,
+    "fields": {
+      "state": "Gujarat",
+      "district": "Rajkot",
+      "wind": 39,
+      "seismic_zone": "II",
+      "zone_factor": 0.16,
+      "temp_max": 47.9,
+      "temp_min": -0.6
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 7,
+    "fields": {
+      "state": "Gujarat",
+      "district": "Surat",
+      "wind": 44,
+      "seismic_zone": "I",
+      "zone_factor": 0.16,
+      "temp_max": 45.6,
+      "temp_min": 4.4
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 8,
+    "fields": {
+      "state": "Himachal Pradesh",
+      "district": "Shimla",
+      "wind": 39,
+      "seismic_zone": "IV",
+      "zone_factor": 0.24,
+      "temp_max": 32.4,
+      "temp_min": -12.2
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 9,
+    "fields": {
+      "state": "Karnataka",
+      "district": "Bengaluru",
+      "wind": 33,
+      "seismic_zone": "I",
+      "zone_factor": 0.1,
+      "temp_max": 38.9,
+      "temp_min": 7.8
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 10,
+    "fields": {
+      "state": "Maharashtra",
+      "district": "Mumbai",
+      "wind": 44,
+      "seismic_zone": "I",
+      "zone_factor": 0.16,
+      "temp_max": 36.7,
+      "temp_min": 12.2
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 11,
+    "fields": {
+      "state": "Maharashtra",
+      "district": "Nagpur",
+      "wind": 44,
+      "seismic_zone": "I",
+      "zone_factor": 0.1,
+      "temp_max": 45.1,
+      "temp_min": 7
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 12,
+    "fields": {
+      "state": "Maharashtra",
+      "district": "Nashik",
+      "wind": 39,
+      "seismic_zone": "I",
+      "zone_factor": 0.16,
+      "temp_max": 42.3,
+      "temp_min": 6.4
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 13,
+    "fields": {
+      "state": "Maharashtra",
+      "district": "Pune",
+      "wind": 39,
+      "seismic_zone": "I",
+      "zone_factor": 0.16,
+      "temp_max": 40.2,
+      "temp_min": 8.4
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 14,
+    "fields": {
+      "state": "Rajasthan",
+      "district": "Jaipur",
+      "wind": 47,
+      "seismic_zone": "I",
+      "zone_factor": 0.1,
+      "temp_max": 48,
+      "temp_min": -2.8
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 15,
+    "fields": {
+      "state": "Rajasthan",
+      "district": "Jodhpur",
+      "wind": 47,
+      "seismic_zone": "III",
+      "zone_factor": 0.1,
+      "temp_max": 48.6,
+      "temp_min": -3.2
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 16,
+    "fields": {
+      "state": "Rajasthan",
+      "district": "Udaipur",
+      "wind": 47,
+      "seismic_zone": "I",
+      "zone_factor": 0.1,
+      "temp_max": 42.8,
+      "temp_min": 3.6
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 17,
+    "fields": {
+      "state": "Tamil Nadu",
+      "district": "Chennai",
+      "wind": 50,
+      "seismic_zone": "II",
+      "zone_factor": 0.16,
+      "temp_max": 38.2,
+      "temp_min": 15
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 18,
+    "fields": {
+      "state": "Tamil Nadu",
+      "district": "Coimbatore",
+      "wind": 39,
+      "seismic_zone": "I",
+      "zone_factor": 0.16,
+      "temp_max": 36.9,
+      "temp_min": 14.8
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 19,
+    "fields": {
+      "state": "Tamil Nadu",
+      "district": "Madurai",
+      "wind": 39,
+      "seismic_zone": "I",
+      "zone_factor": 0.1,
+      "temp_max": 39.3,
+      "temp_min": 16.1
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 20,
+    "fields": {
+      "state": "Tamil Nadu",
+      "district": "Tiruchirappalli",
+      "wind": 47,
+      "seismic_zone": "I",
+      "zone_factor": 0.1,
+      "temp_max": 37.8,
+      "temp_min": 15.2
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 21,
+    "fields": {
+      "state": "Uttar Pradesh",
+      "district": "Agra",
+      "wind": 47,
+      "seismic_zone": "II",
+      "zone_factor": 0.16,
+      "temp_max": 46.8,
+      "temp_min": -1.4
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 22,
+    "fields": {
+      "state": "Uttar Pradesh",
+      "district": "Kanpur",
+      "wind": 47,
+      "seismic_zone": "I",
+      "zone_factor": 0.16,
+      "temp_max": 46.8,
+      "temp_min": -1
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 23,
+    "fields": {
+      "state": "Uttar Pradesh",
+      "district": "Lucknow",
+      "wind": 47,
+      "seismic_zone": "I",
+      "zone_factor": 0.16,
+      "temp_max": 46.3,
+      "temp_min": -0.3
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 24,
+    "fields": {
+      "state": "Uttar Pradesh",
+      "district": "Varanasi",
+      "wind": 47,
+      "seismic_zone": "I",
+      "zone_factor": 0.16,
+      "temp_max": 46.1,
+      "temp_min": -1.5
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 25,
+    "fields": {
+      "state": "West Bengal",
+      "district": "Durgapur",
+      "wind": 47,
+      "seismic_zone": "II",
+      "zone_factor": 0.16,
+      "temp_max": 41.6,
+      "temp_min": 5.2
+    }
+  },
+  {
+    "model": "locations.location",
+    "pk": 26,
+    "fields": {
+      "state": "West Bengal",
+      "district": "Kolkata",
+      "wind": 50,
+      "seismic_zone": "III",
+      "zone_factor": 0.16,
+      "temp_max": 38,
+      "temp_min": 7
+    }
+  }
+]
