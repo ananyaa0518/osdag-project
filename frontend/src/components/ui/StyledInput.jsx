@@ -6,12 +6,12 @@ export const StyledInput = ({ label, error, warning, className = '', ...props })
       {label && <label className="mb-1 block text-[11px] font-semibold text-gray-700">{label}</label>}
       <input
         {...props}
-        className={`w-full border border-gray-300 px-2 py-1.5 text-[11px] shadow-sm transition-colors disabled:bg-gray-100 ${
+        className={`w-full border border-black px-2 py-1.5 text-[11px] shadow-sm transition-colors disabled:bg-gray-100 ${
           error
             ? 'border-red-500 text-red-900 focus:ring-red-500 focus:border-red-500 bg-red-50'
             : warning
             ? 'border-yellow-500 focus:ring-yellow-500 focus:border-yellow-500 bg-yellow-50/30'
-            : 'border-gray-300 focus:ring-blue-500 focus:border-blue-500 bg-white'
+            : 'border-black focus:ring-blue-500 focus:border-blue-500 bg-white'
         } ${props.className || ''}`}
       />
       {error && (

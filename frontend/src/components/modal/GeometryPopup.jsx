@@ -23,7 +23,7 @@ export const GeometryPopup = ({ isOpen, onClose, onApply, overallWidth }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity">
-      <div className="bg-white rounded-xl shadow-2xl w-full max-w-md overflow-hidden transform transition-all scale-100">
+      <div className="bg-white rounded-none shadow-2xl w-full max-w-md overflow-hidden transform transition-all scale-100">
         <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
           <h2 className="text-lg font-bold text-gray-900">Modify Additional Geometry</h2>
           <button onClick={onClose} className="text-gray-400 hover:text-gray-600 transition-colors p-1 rounded-full hover:bg-gray-100">
@@ -34,7 +34,7 @@ export const GeometryPopup = ({ isOpen, onClose, onApply, overallWidth }) => {
         </div>
         
         <div className="p-6 space-y-5">
-          <div className="text-sm text-blue-800 p-3 bg-blue-50 rounded-lg border border-blue-100 flex items-center justify-between shadow-sm">
+          <div className="text-sm text-blue-800 p-3 bg-blue-50 rounded-none border border-blue-100 flex items-center justify-between shadow-sm">
             <span className="font-semibold">Overall Width (W): </span> 
             <span className="font-mono text-base">{overallWidth?.toFixed(2)} m</span>
           </div>
@@ -66,10 +66,10 @@ export const GeometryPopup = ({ isOpen, onClose, onApply, overallWidth }) => {
             />
           </div>
 
-          <div className={`p-4 rounded-lg border shadow-sm transition-colors ${calculatedN !== null ? (isMatch ? 'bg-green-50/80 border-green-200' : 'bg-red-50/80 border-red-200') : 'bg-gray-50 border-gray-200'}`}>
+          <div className={`p-4 rounded-none border shadow-sm transition-colors ${calculatedN !== null ? (isMatch ? 'bg-[#84cc16]/12 border-[#84cc16]' : 'bg-red-50/80 border-red-200') : 'bg-gray-50 border-gray-200'}`}>
             <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Calculation Check: (W - O) / S = N</p>
             {calculatedN !== null ? (
-               <div className={`text-sm font-semibold font-mono flex flex-col space-y-1 ${isMatch ? 'text-green-700' : 'text-red-700'}`}>
+               <div className={`text-sm font-semibold font-mono flex flex-col space-y-1 ${isMatch ? 'text-[#84cc16]' : 'text-red-700'}`}>
                  <div>({overallWidth} - {oNum}) / {sNum} = {calculatedN.toFixed(3)}</div>
                  <div className="flex items-center text-sm pt-1">
                    {isMatch ? (

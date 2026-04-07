@@ -16,8 +16,8 @@ export const ProjectLocation = ({
   districts,
 }) => {
   return (
-    <section className="mb-4 overflow-hidden rounded-xl bg-white shadow-md">
-      <div className="border-b border-gray-300 bg-amber-400 px-3 py-1.5">
+    <section className="mb-4 overflow-hidden rounded-none border border-black bg-white shadow-md">
+      <div className="border-b border-black bg-amber-400 px-3 py-1.5">
         <h3 className="text-[12px] font-bold text-gray-900">Project Location</h3>
       </div>
       
@@ -69,7 +69,7 @@ export const ProjectLocation = ({
         </div>
 
         {/* Mode 2 */}
-        <div className="flex flex-col space-y-2 border-t border-gray-200 pt-2">
+        <div className="flex flex-col space-y-2 border-t border-black pt-2">
           <label className="flex items-center space-x-2 cursor-pointer group w-fit">
             <input
               type="radio"
@@ -97,22 +97,22 @@ export const ProjectLocation = ({
           )}
         </div>
 
-        <div className="grid grid-cols-2 gap-2 border border-green-300 bg-green-50 p-2 text-[11px] md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-2 border border-[#84cc16] bg-[#84cc16]/12 p-2 text-[11px] md:grid-cols-4">
           <div className="flex flex-col">
-            <span className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-green-700">Wind</span>
-            <span className="text-xs font-medium text-green-600">{locationSummary.wind || '-'}</span>
+            <span className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-[#84cc16]">Wind</span>
+            <span className="text-xs font-medium text-[#84cc16]">{locationSummary.wind || '-'}</span>
           </div>
           <div className="flex flex-col">
-            <span className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-green-700">Seismic</span>
-            <span className="text-xs font-medium text-green-600">{locationSummary.seismic || '-'}</span>
+            <span className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-[#84cc16]">Seismic</span>
+            <span className="text-xs font-medium text-[#84cc16]">{locationSummary.seismic || '-'}</span>
           </div>
           <div className="flex flex-col">
-            <span className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-green-700">Max Temp</span>
-            <span className="text-xs font-medium text-green-600">{locationSummary.tempMax || '-'}</span>
+            <span className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-[#84cc16]">Max Temp</span>
+            <span className="text-xs font-medium text-[#84cc16]">{locationSummary.tempMax || '-'}</span>
           </div>
           <div className="flex flex-col">
-            <span className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-green-700">Min Temp</span>
-            <span className="text-xs font-medium text-green-600">{locationSummary.tempMin || '-'}</span>
+            <span className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-[#84cc16]">Min Temp</span>
+            <span className="text-xs font-medium text-[#84cc16]">{locationSummary.tempMin || '-'}</span>
           </div>
         </div>
       </div>
