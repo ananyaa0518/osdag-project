@@ -1,12 +1,13 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '../components/layout/Layout';
 import Tabs from '../components/layout/Tabs';
 import { BasicInputs } from '../components/form/BasicInputs';
 import { AdditionalInputs } from '../components/form/AdditionalInputs';
 import { GeometryPopup } from '../components/modal/GeometryPopup';
 import BridgeDiagram from '../components/visualization/BridgeDiagram';
-import { locationData } from '../data/locationData';
 import { useFormValidation } from '../hooks/useFormValidation';
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000';
 
 const initialFormData = {
   structureType: 'Highway',
@@ -27,8 +28,10 @@ const initialFormData = {
   customSeismic: '',
   customTempMax: '',
   customTempMin: '',
+  customZoneFactor: '',
   wind: '',
   seismic: '',
+  zoneFactor: '',
   tempMax: '',
   tempMin: '',
 };
@@ -36,26 +39,117 @@ const initialFormData = {
 const Home = () => {
   const [activeTab, setActiveTab] = useState('basic');
   const [formData, setFormData] = useState(initialFormData);
+  const [states, setStates] = useState([]);
+  const [districts, setDistricts] = useState([]);
+  const [statesLoading, setStatesLoading] = useState(false);
+  const [districtsLoading, setDistrictsLoading] = useState(false);
+  const [locationLoading, setLocationLoading] = useState(false);
+  const [statesError, setStatesError] = useState('');
+  const [districtsError, setDistrictsError] = useState('');
+  const [locationError, setLocationError] = useState('');
   const [isGeometryPopupOpen, setIsGeometryPopupOpen] = useState(false);
   const [isCustomLocationModalOpen, setIsCustomLocationModalOpen] = useState(false);
   const { errors, warnings, validateField } = useFormValidation();
 
   const isOther = formData.structureType === 'Other';
 
-  const states = useMemo(
-    () => [...new Set(locationData.map((item) => item.state))],
-    [],
-  );
+  useEffect(() => {
+    const fetchStates = async () => {
+      setStatesLoading(true);
+      setStatesError('');
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/states/`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch states');
+        }
+        const data = await response.json();
+        setStates(Array.isArray(data) ? data : []);
+      } catch (error) {
+        setStates([]);
+        setStatesError('Unable to load states. Please check backend server.');
+      } finally {
+        setStatesLoading(false);
+      }
+    };
 
-  const districts = useMemo(() => {
+    fetchStates();
+  }, []);
+
+  useEffect(() => {
     if (!formData.stateName) {
-      return [];
+      setDistricts([]);
+      setDistrictsError('');
+      return;
     }
 
-    return locationData
-      .filter((item) => item.state === formData.stateName)
-      .map((item) => item.district);
+    const fetchDistricts = async () => {
+      setDistrictsLoading(true);
+      setDistrictsError('');
+      try {
+        const response = await fetch(
+          `${API_BASE_URL}/api/districts/${encodeURIComponent(formData.stateName)}/`,
+        );
+        if (!response.ok) {
+          throw new Error('Failed to fetch districts');
+        }
+        const data = await response.json();
+        setDistricts(Array.isArray(data) ? data : []);
+      } catch (error) {
+        setDistricts([]);
+        setDistrictsError('Unable to load districts for selected state.');
+      } finally {
+        setDistrictsLoading(false);
+      }
+    };
+
+    fetchDistricts();
   }, [formData.stateName]);
+
+  useEffect(() => {
+    if (formData.locationMode !== 'name' || !formData.stateName || !formData.districtName) {
+      setLocationError('');
+      return;
+    }
+
+    const fetchLocationData = async () => {
+      setLocationLoading(true);
+      setLocationError('');
+      try {
+        const url = new URL(`${API_BASE_URL}/api/data/`);
+        url.searchParams.set('state', formData.stateName);
+        url.searchParams.set('district', formData.districtName);
+
+        const response = await fetch(url.toString());
+        if (!response.ok) {
+          throw new Error('Failed to fetch location data');
+        }
+
+        const data = await response.json();
+        setFormData((prev) => ({
+          ...prev,
+          wind: `${data.wind} m/s`,
+          seismic: `Zone ${data.seismic_zone}`,
+          zoneFactor: `${data.zone_factor}`,
+          tempMax: `${data.temp_max} C`,
+          tempMin: `${data.temp_min} C`,
+        }));
+      } catch (error) {
+        setFormData((prev) => ({
+          ...prev,
+          wind: '',
+          seismic: '',
+          zoneFactor: '',
+          tempMax: '',
+          tempMin: '',
+        }));
+        setLocationError('Unable to load location climate/seismic data.');
+      } finally {
+        setLocationLoading(false);
+      }
+    };
+
+    fetchLocationData();
+  }, [formData.stateName, formData.districtName, formData.locationMode]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -68,19 +162,18 @@ const Home = () => {
         if (next.locationMode === 'name') {
           next.wind = '';
           next.seismic = '';
+          next.zoneFactor = '';
           next.tempMax = '';
           next.tempMin = '';
         }
       }
 
       if (name === 'districtName' && next.locationMode === 'name') {
-        const matched = locationData.find((row) => row.district === value && row.state === next.stateName);
-        if (matched) {
-          next.wind = matched.windSpeed;
-          next.seismic = matched.seismicZone;
-          next.tempMax = matched.tempMax;
-          next.tempMin = matched.tempMin;
-        }
+        next.wind = '';
+        next.seismic = '';
+        next.zoneFactor = '';
+        next.tempMax = '';
+        next.tempMin = '';
       }
 
       return next;
@@ -98,6 +191,7 @@ const Home = () => {
       ...prev,
       wind: prev.customWind,
       seismic: prev.customSeismic,
+      zoneFactor: prev.customZoneFactor,
       tempMax: prev.customTempMax,
       tempMin: prev.customTempMin,
     }));
@@ -116,6 +210,7 @@ const Home = () => {
   const locationSummary = {
     wind: formData.wind,
     seismic: formData.seismic,
+    zoneFactor: formData.zoneFactor,
     tempMax: formData.tempMax,
     tempMin: formData.tempMin,
   };
@@ -145,6 +240,12 @@ const Home = () => {
           locationSummary={locationSummary}
           states={states}
           districts={districts}
+          statesLoading={statesLoading}
+          districtsLoading={districtsLoading}
+          locationLoading={locationLoading}
+          statesError={statesError}
+          districtsError={districtsError}
+          locationError={locationError}
         />
       ) : (
         <AdditionalInputs />

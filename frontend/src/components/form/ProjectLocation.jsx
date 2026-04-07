@@ -14,6 +14,12 @@ export const ProjectLocation = ({
   locationSummary,
   states,
   districts,
+  statesLoading,
+  districtsLoading,
+  locationLoading,
+  statesError,
+  districtsError,
+  locationError,
 }) => {
   return (
     <section className="mb-4 overflow-hidden rounded-none border border-black bg-white shadow-md">
@@ -46,9 +52,9 @@ export const ProjectLocation = ({
                   name="stateName"
                   value={formData.stateName}
                   onChange={handleChange}
-                  disabled={isOther}
+                  disabled={isOther || statesLoading}
                   options={[
-                    { value: '', label: 'Select State...' },
+                    { value: '', label: statesLoading ? 'Loading states...' : 'Select State...' },
                     ...states.map((state) => ({ value: state, label: state })),
                   ]}
                 />
@@ -57,13 +63,24 @@ export const ProjectLocation = ({
                   name="districtName"
                   value={formData.districtName}
                   onChange={handleChange}
-                  disabled={isOther || !formData.stateName}
+                  disabled={isOther || !formData.stateName || districtsLoading}
                   options={[
-                    { value: '', label: 'Select District...' },
+                    { value: '', label: districtsLoading ? 'Loading districts...' : 'Select District...' },
                     ...districts.map((district) => ({ value: district, label: district })),
                   ]}
                 />
               </div>
+              {(statesError || districtsError) && (
+                <p className="mt-2 text-xs font-medium text-red-600">
+                  {statesError || districtsError}
+                </p>
+              )}
+              {locationLoading && (
+                <p className="mt-2 text-xs font-medium text-slate-600">Loading location data...</p>
+              )}
+              {locationError && (
+                <p className="mt-2 text-xs font-medium text-red-600">{locationError}</p>
+              )}
             </div>
           )}
         </div>
@@ -97,22 +114,26 @@ export const ProjectLocation = ({
           )}
         </div>
 
-        <div className="grid grid-cols-2 gap-2 border border-[#84cc16] bg-[#84cc16]/12 p-2 text-[11px] md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-2 border border-[#84cc16] bg-[#84cc16]/12 p-2 text-[11px] md:grid-cols-5">
           <div className="flex flex-col">
             <span className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-[#84cc16]">Wind</span>
-            <span className="text-xs font-medium text-[#84cc16]">{locationSummary.wind || '-'}</span>
+            <span className="text-xs text-green-600 font-semibold">{locationSummary.wind || '-'}</span>
           </div>
           <div className="flex flex-col">
             <span className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-[#84cc16]">Seismic</span>
-            <span className="text-xs font-medium text-[#84cc16]">{locationSummary.seismic || '-'}</span>
+            <span className="text-xs text-green-600 font-semibold">{locationSummary.seismic || '-'}</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-[#84cc16]">Zone Factor</span>
+            <span className="text-xs text-green-600 font-semibold">{locationSummary.zoneFactor || '-'}</span>
           </div>
           <div className="flex flex-col">
             <span className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-[#84cc16]">Max Temp</span>
-            <span className="text-xs font-medium text-[#84cc16]">{locationSummary.tempMax || '-'}</span>
+            <span className="text-xs text-green-600 font-semibold">{locationSummary.tempMax || '-'}</span>
           </div>
           <div className="flex flex-col">
             <span className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-[#84cc16]">Min Temp</span>
-            <span className="text-xs font-medium text-[#84cc16]">{locationSummary.tempMin || '-'}</span>
+            <span className="text-xs text-green-600 font-semibold">{locationSummary.tempMin || '-'}</span>
           </div>
         </div>
       </div>
@@ -166,6 +187,17 @@ export const ProjectLocation = ({
               onChange={handleChange}
               className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-blue-500 focus:border-blue-500"
               placeholder="e.g. 8 C"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-1.5">Zone Factor</label>
+            <input
+              name="customZoneFactor"
+              type="text"
+              value={formData.customZoneFactor}
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-blue-500 focus:border-blue-500"
+              placeholder="e.g. 0.16"
             />
           </div>
         </div>
