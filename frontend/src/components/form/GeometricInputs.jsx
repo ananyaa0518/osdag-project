@@ -71,15 +71,24 @@ export const GeometricInputs = ({ formData, handleChange, errors, warnings, isOt
             <p className="mt-1 text-[10px] text-gray-500">Please enter a valid carriageway width to unlock advanced geometry.</p>
           )}
           {formData.spacing && (
-            <div className="mt-2 flex items-center justify-between border border-gray-200 bg-gray-50 p-2 text-xs text-gray-700">
-              <div className="flex items-center font-medium text-[#84cc16]">
-                <svg className="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
-                Applied Geometry
+            <div className="mt-2 grid grid-cols-4 gap-2 items-center border border-gray-200 bg-gray-50 p-2 text-[10px] text-gray-700">
+              <div className="flex items-center font-bold text-[#84cc16] min-w-0">
+                <svg className="w-3.5 h-3.5 mr-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="truncate">Applied Geometry</span>
               </div>
-              <div className="flex space-x-4 text-[10px] text-gray-600">
-                <span><span className="mb-0.5 block text-[9px] font-semibold uppercase tracking-wider text-gray-900">Spacing</span> {formData.spacing} m</span>
-                <span><span className="mb-0.5 block text-[9px] font-semibold uppercase tracking-wider text-gray-900">Girders</span> {formData.girders}</span>
-                <span><span className="mb-0.5 block text-[9px] font-semibold uppercase tracking-wider text-gray-900">Overhang</span> {formData.overhang} m</span>
+              <div className="min-w-0 text-center">
+                <span className="block text-[8px] font-bold uppercase text-gray-500">Spacing</span>
+                <span className="font-semibold text-gray-900">{formData.spacing} m</span>
+              </div>
+              <div className="min-w-0 text-center">
+                <span className="block text-[8px] font-bold uppercase text-gray-500">Girders</span>
+                <span className="font-semibold text-gray-900">{formData.girders}</span>
+              </div>
+              <div className="min-w-0 text-center break-words">
+                <span className="block text-[8px] font-bold uppercase text-gray-500">Overhang</span>
+                <span className="font-semibold text-gray-900">{formData.overhang} m</span>
               </div>
             </div>
           )}
