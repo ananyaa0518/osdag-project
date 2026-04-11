@@ -3,7 +3,7 @@ import { StyledSelect } from '../ui/StyledSelect';
 
 export const MaterialInputs = ({ formData, handleChange, isOther }) => {
   return (
-    <section className="mb-4 overflow-hidden rounded-none border border-black bg-white shadow-md">
+    <section className="mb-4 rounded-none border border-black bg-white shadow-md">
       <div className="border-b border-black bg-gray-100 px-3 py-1.5">
         <h3 className="text-[12px] font-bold text-gray-900">Material Inputs</h3>
       </div>

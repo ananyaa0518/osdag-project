@@ -25,13 +25,13 @@ pip install -r requirements.txt # (if available) or install django, djangorestfr
 **Initialize Database & Load Data:**
 The `db.sqlite3` file is intentionally excluded from version control. You must run migrations and load the provided data fixtures containing real location tables:
 ```bash
-python manage.py migrate
-python manage.py loaddata locations/fixtures/locations.json
+python3 manage.py migrate
+python3 manage.py loaddata locations/fixtures/locations.json
 ```
 
 **Run the Server:**
 ```bash
-python manage.py runserver
+python3 manage.py runserver
 ```
 The backend API will be available at `http://127.0.0.1:8000`.
 

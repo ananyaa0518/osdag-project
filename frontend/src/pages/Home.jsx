@@ -48,6 +48,7 @@ const Home = () => {
   const [districtsError, setDistrictsError] = useState('');
   const [locationError, setLocationError] = useState('');
   const [isGeometryPopupOpen, setIsGeometryPopupOpen] = useState(false);
+  const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
   const [isCustomLocationModalOpen, setIsCustomLocationModalOpen] = useState(false);
   const { errors, warnings, validateField } = useFormValidation();
 
@@ -219,9 +220,6 @@ const Home = () => {
 
   const leftPanel = (
     <div>
-      <h1 className="mb-1 text-sm font-bold uppercase tracking-wide text-slate-700">Basic Input Module</h1>
-      <p className="mb-3 text-[11px] text-slate-500">OSDAG composite bridge quick screening</p>
-
       <Tabs activeTab={activeTab} onTabChange={setActiveTab} />
 
       {activeTab === 'basic' ? (
@@ -233,6 +231,9 @@ const Home = () => {
           warnings={warnings}
           isOther={isOther}
           onOpenGeometryModal={() => setIsGeometryPopupOpen(true)}
+          isLocationModalOpen={isLocationModalOpen}
+          onOpenLocationModal={() => setIsLocationModalOpen(true)}
+          onCloseLocationModal={() => setIsLocationModalOpen(false)}
           isCustomLocationModalOpen={isCustomLocationModalOpen}
           onOpenCustomLocationModal={() => setIsCustomLocationModalOpen(true)}
           onCloseCustomLocationModal={() => setIsCustomLocationModalOpen(false)}
